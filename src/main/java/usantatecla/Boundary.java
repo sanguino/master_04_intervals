@@ -28,7 +28,7 @@ abstract public class Boundary {
             return false;
         if (getClass() != obj.getClass())
             return false;
-        Max other = (Max) obj;
+        Boundary other = (Boundary) obj;
         if (Double.doubleToLongBits(value) != Double.doubleToLongBits(other.value))
             return false;
         return true;
