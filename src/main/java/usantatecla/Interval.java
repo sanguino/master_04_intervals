@@ -15,7 +15,7 @@ public class Interval {
 		return this.min.isWithin(value) && this.max.isWithin(value);
 	}
 
-	public boolean include(Interval interval) {
+	protected boolean include(Interval interval) {
 		return this.include(interval.max.value) || this.include(interval.min.value);
 	}
 
