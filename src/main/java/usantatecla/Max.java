@@ -6,6 +6,7 @@ public class Max extends Boundary {
     super(value);
   }
 
+  @Override
   public boolean isWithin(double value) {
     return this.value > value;
   }

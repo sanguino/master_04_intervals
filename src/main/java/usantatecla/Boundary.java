@@ -8,6 +8,8 @@ abstract public class Boundary {
         this.value = value;
     }
 
+    abstract public boolean isWithin(double value);
+
     @Override
     public int hashCode() {
         final int prime = 31;
