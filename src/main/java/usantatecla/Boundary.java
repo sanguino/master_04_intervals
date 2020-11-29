@@ -1,6 +1,6 @@
 package usantatecla;
 
-public class Boundary {
+abstract public class Boundary {
 
     protected double value;
 
