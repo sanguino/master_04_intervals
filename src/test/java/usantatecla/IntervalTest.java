@@ -20,10 +20,10 @@ public class IntervalTest {
   @Test
   public void givenIntervalWhenIsIntersectedWithIntervalThenTrue() {
     Interval interval = new IntervalBuilder().open(left.getEquals()).open(right.getEquals()).build();
-    Interval minIntersect = new IntervalBuilder().open(left.getVeryLess()).open(right.getVeryLess()).build();
-    Interval maxIntersect = new IntervalBuilder().open(left.getVeryGreater()).open(right.getVeryGreater()).build();
-    Interval insideIntersect = new IntervalBuilder().open(left.getVeryGreater()).open(right.getVeryLess()).build();
-    Interval outsideIntersect = new IntervalBuilder().open(left.getVeryLess()).open(right.getVeryGreater()).build();
+    Interval minIntersect = new IntervalBuilder().open(left.getLess()).open(right.getLess()).build();
+    Interval maxIntersect = new IntervalBuilder().open(left.getGreater()).open(right.getGreater()).build();
+    Interval insideIntersect = new IntervalBuilder().open(left.getGreater()).open(right.getLess()).build();
+    Interval outsideIntersect = new IntervalBuilder().open(left.getLess()).open(right.getGreater()).build();
 
     assertTrue(interval.isIntersected(minIntersect));
     assertTrue(interval.isIntersected(maxIntersect));
@@ -35,10 +35,10 @@ public class IntervalTest {
   @Test
   public void givenIntervalOpenOpenWhenIsIntersectedWithIntervalThenTrue() {
     Interval interval = new IntervalBuilder().open(left.getEquals()).open(right.getEquals()).build();
-    Interval minIntersectEqualMin = new IntervalBuilder().open(left.getEquals()).open(right.getVeryLess()).build();
-    Interval minIntersectEqualMax = new IntervalBuilder().open(left.getVeryLess()).open(right.getEquals()).build();
-    Interval maxIntersectEqualMin = new IntervalBuilder().open(left.getEquals()).open(right.getVeryGreater()).build();
-    Interval maxIntersectEqualMax = new IntervalBuilder().open(left.getVeryGreater()).open(right.getEquals()).build();
+    Interval minIntersectEqualMin = new IntervalBuilder().open(left.getEquals()).open(right.getLess()).build();
+    Interval minIntersectEqualMax = new IntervalBuilder().open(left.getLess()).open(right.getEquals()).build();
+    Interval maxIntersectEqualMin = new IntervalBuilder().open(left.getEquals()).open(right.getGreater()).build();
+    Interval maxIntersectEqualMax = new IntervalBuilder().open(left.getGreater()).open(right.getEquals()).build();
     Interval equal = new IntervalBuilder().open(left.getEquals()).open(right.getEquals()).build();
 
     assertTrue(interval.isIntersected(minIntersectEqualMin));
@@ -51,10 +51,10 @@ public class IntervalTest {
   @Test
   public void givenIntervalCloseCloseWhenIsIntersectedWithIntervalThenTrue() {
     Interval interval = new IntervalBuilder().closed(left.getEquals()).closed(right.getEquals()).build();
-    Interval minIntersectEqualMin = new IntervalBuilder().closed(left.getEquals()).closed(right.getVeryLess()).build();
-    Interval minIntersectEqualMax = new IntervalBuilder().closed(left.getVeryLess()).closed(right.getEquals()).build();
-    Interval maxIntersectEqualMin = new IntervalBuilder().closed(left.getEquals()).closed(right.getVeryGreater()).build();
-    Interval maxIntersectEqualMax = new IntervalBuilder().closed(left.getVeryGreater()).closed(right.getEquals()).build();
+    Interval minIntersectEqualMin = new IntervalBuilder().closed(left.getEquals()).closed(right.getLess()).build();
+    Interval minIntersectEqualMax = new IntervalBuilder().closed(left.getLess()).closed(right.getEquals()).build();
+    Interval maxIntersectEqualMin = new IntervalBuilder().closed(left.getEquals()).closed(right.getGreater()).build();
+    Interval maxIntersectEqualMax = new IntervalBuilder().closed(left.getGreater()).closed(right.getEquals()).build();
     Interval equal = new IntervalBuilder().closed(left.getEquals()).closed(right.getEquals()).build();
 
     assertTrue(interval.isIntersected(minIntersectEqualMin));
@@ -67,10 +67,10 @@ public class IntervalTest {
     @Test
     public void givenIntervalOpenCloseWhenIsIntersectedWithIntervalThenTrue() {
         Interval interval = new IntervalBuilder().open(left.getEquals()).closed(right.getEquals()).build();
-        Interval minIntersectEqualMin = new IntervalBuilder().open(left.getEquals()).closed(right.getVeryLess()).build();
-        Interval minIntersectEqualMax = new IntervalBuilder().open(left.getVeryLess()).closed(right.getEquals()).build();
-        Interval maxIntersectEqualMin = new IntervalBuilder().open(left.getEquals()).closed(right.getVeryGreater()).build();
-        Interval maxIntersectEqualMax = new IntervalBuilder().open(left.getVeryGreater()).closed(right.getEquals()).build();
+        Interval minIntersectEqualMin = new IntervalBuilder().open(left.getEquals()).closed(right.getLess()).build();
+        Interval minIntersectEqualMax = new IntervalBuilder().open(left.getLess()).closed(right.getEquals()).build();
+        Interval maxIntersectEqualMin = new IntervalBuilder().open(left.getEquals()).closed(right.getGreater()).build();
+        Interval maxIntersectEqualMax = new IntervalBuilder().open(left.getGreater()).closed(right.getEquals()).build();
         Interval equal = new IntervalBuilder().open(left.getEquals()).closed(right.getEquals()).build();
 
         assertTrue(interval.isIntersected(minIntersectEqualMin));
@@ -83,10 +83,10 @@ public class IntervalTest {
   @Test
   public void givenIntervalCloseOpenWhenIsIntersectedWithIntervalThenTrue() {
     Interval interval = new IntervalBuilder().closed(left.getEquals()).open(right.getEquals()).build();
-    Interval minIntersectEqualMin = new IntervalBuilder().closed(left.getEquals()).open(right.getVeryLess()).build();
-    Interval minIntersectEqualMax = new IntervalBuilder().closed(left.getVeryLess()).open(right.getEquals()).build();
-    Interval maxIntersectEqualMin = new IntervalBuilder().closed(left.getEquals()).open(right.getVeryGreater()).build();
-    Interval maxIntersectEqualMax = new IntervalBuilder().closed(left.getVeryGreater()).open(right.getEquals()).build();
+    Interval minIntersectEqualMin = new IntervalBuilder().closed(left.getEquals()).open(right.getLess()).build();
+    Interval minIntersectEqualMax = new IntervalBuilder().closed(left.getLess()).open(right.getEquals()).build();
+    Interval maxIntersectEqualMin = new IntervalBuilder().closed(left.getEquals()).open(right.getGreater()).build();
+    Interval maxIntersectEqualMax = new IntervalBuilder().closed(left.getGreater()).open(right.getEquals()).build();
     Interval equal = new IntervalBuilder().closed(left.getEquals()).open(right.getEquals()).build();
 
     assertTrue(interval.isIntersected(minIntersectEqualMin));
