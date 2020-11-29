@@ -20,6 +20,12 @@ public class IntervalTest {
   }
 
   @Test
+  public void givenIntervalWhenIsIntersectedWithIntervalThenTrue() {
+    Interval interval = this.intervalBuilder.open(left.getEquals()).open(right.getEquals()).build();
+    assertTrue(interval.isIntersected(interval));
+  }
+
+  @Test
   public void givenIntervaOpenOpenlwhenIncludeWithIncludedValueThenTrue() {
     Interval interval = this.intervalBuilder.open(left.getEquals()).open(right.getEquals()).build();
     assertFalse(interval.include(left.getLess()));
