@@ -19,8 +19,8 @@ public class Interval {
 		return this.include(interval.max.value) || this.include(interval.min.value);
 	}
 
-	public boolean isIntersected (Interval intersect) {
-		return this.include(intersect) || intersect.include(this);
+	public boolean isIntersected (Interval other) {
+		return this.include(other) || other.include(this);
 	}
 
 	@Override
