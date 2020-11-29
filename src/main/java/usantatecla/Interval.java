@@ -21,6 +21,13 @@ public class Interval {
 				return true;
 			}
 		}
+
+		if (this.include(intersect.min.value)) {
+			if (this.include(intersect.max.value)) {
+				return true;
+			}
+		}
+
 		return false;
 	}
 
@@ -29,19 +36,6 @@ public class Interval {
 		if (this.oneWayIntersection(intersect) || intersect.oneWayIntersection(this)) {
 			return true;
 		}
-
-		if (this.include(intersect.min.value)) {
-			if (this.include(intersect.max.value)) {
-				return true;
-			}
-		}
-
-		if (intersect.include(this.min.value)) {
-			if (intersect.include(this.max.value)) {
-				return true;
-			}
-		}
-
 		return false;
 	}
 
