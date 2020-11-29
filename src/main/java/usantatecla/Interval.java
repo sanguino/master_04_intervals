@@ -17,10 +17,7 @@ public class Interval {
 
 	protected boolean oneWayIntersection(Interval intersect) {
 		if (this.include(intersect.max.value)) {
-			if (intersect.include(this.min.value)) {
-				return true;
-			}
-			if (this.include(intersect.min.value)) {
+			if (intersect.include(this.min.value) || this.include(intersect.min.value)) {
 				return true;
 			}
 		}
