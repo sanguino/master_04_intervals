@@ -20,8 +20,6 @@ public class Interval {
 			if (intersect.include(this.min.value)) {
 				return true;
 			}
-		}
-		if (this.include(intersect.max.value)) {
 			if (this.include(intersect.min.value)) {
 				return true;
 			}
