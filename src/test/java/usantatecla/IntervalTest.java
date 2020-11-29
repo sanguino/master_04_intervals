@@ -22,8 +22,10 @@ public class IntervalTest {
     Interval interval = new IntervalBuilder().open(left.getEquals()).open(right.getEquals()).build();
     Interval minIntersect = new IntervalBuilder().open(left.getVeryLess()).open(right.getVeryLess()).build();
     Interval maxIntersect = new IntervalBuilder().open(left.getVeryGreater()).open(right.getVeryGreater()).build();
+    Interval insideIntersect = new IntervalBuilder().open(left.getVeryGreater()).open(right.getVeryLess()).build();
     assertTrue(interval.isIntersected(minIntersect));
     assertTrue(interval.isIntersected(maxIntersect));
+    assertTrue(interval.isIntersected(insideIntersect));
   }
 
   @Test
