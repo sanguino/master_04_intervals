@@ -15,16 +15,19 @@ public class Interval {
 			return this.min.isWithin(value) && this.max.isWithin(value);
 	}
 
-	public boolean isIntersected (Interval intersect) {
+	protected boolean oneWayIntersection(Interval intersect) {
 		if (intersect.include(this.min.value)) {
 			if (this.include(intersect.max.value)) {
 				return true;
 			}
 		}
-		if (intersect.include(this.max.value)) {
-			if (this.include(intersect.min.value)) {
-				return true;
-			}
+		return false;
+	}
+
+	public boolean isIntersected (Interval intersect) {
+
+		if (this.oneWayIntersection(intersect) || intersect.oneWayIntersection(this)) {
+			return true;
 		}
 
 		if (this.include(intersect.min.value)) {
