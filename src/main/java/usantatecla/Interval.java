@@ -20,10 +20,7 @@ public class Interval {
 	}
 
 	public boolean isIntersected (Interval intersect) {
-		if (this.include(intersect) || intersect.include(this)) {
-			return true;
-		}
-		return false;
+		return this.include(intersect) || intersect.include(this);
 	}
 
 	@Override
