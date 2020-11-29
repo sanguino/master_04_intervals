@@ -8,8 +8,8 @@ import org.junit.jupiter.api.Test;
 
 public class IntervalTest {
   
-  private Point left = new Point(-2.2);
-  private Point right = new Point(4.4);
+  private Point left;
+  private Point right;
   private IntervalBuilder intervalBuilder;
 
   @BeforeEach
