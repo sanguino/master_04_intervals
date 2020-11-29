@@ -22,7 +22,8 @@ public class IntervalTest {
   @Test
   public void givenIntervalWhenIsIntersectedWithIntervalThenTrue() {
     Interval interval = this.intervalBuilder.open(left.getEquals()).open(right.getEquals()).build();
-    assertTrue(interval.isIntersected(interval));
+    Interval minIntersect = this.intervalBuilder.open(left.getVeryLess()).open(right.getVeryLess()).build();
+    assertTrue(interval.isIntersected(minIntersect));
   }
 
   @Test
