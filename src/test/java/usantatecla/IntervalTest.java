@@ -64,6 +64,22 @@ public class IntervalTest {
     assertTrue(interval.isIntersected(equal));
   }
 
+    @Test
+    public void givenIntervalOpenCloseWhenIsIntersectedWithIntervalThenTrue() {
+        Interval interval = new IntervalBuilder().open(left.getEquals()).closed(right.getEquals()).build();
+        Interval minIntersectEqualMin = new IntervalBuilder().open(left.getEquals()).closed(right.getVeryLess()).build();
+        Interval minIntersectEqualMax = new IntervalBuilder().open(left.getVeryLess()).closed(right.getEquals()).build();
+        Interval maxIntersectEqualMin = new IntervalBuilder().open(left.getEquals()).closed(right.getVeryGreater()).build();
+        Interval maxIntersectEqualMax = new IntervalBuilder().open(left.getVeryGreater()).closed(right.getEquals()).build();
+        Interval equal = new IntervalBuilder().open(left.getEquals()).closed(right.getEquals()).build();
+
+        assertTrue(interval.isIntersected(minIntersectEqualMin));
+        assertTrue(interval.isIntersected(minIntersectEqualMax));
+        assertTrue(interval.isIntersected(maxIntersectEqualMin));
+        assertTrue(interval.isIntersected(maxIntersectEqualMax));
+        assertTrue(interval.isIntersected(equal));
+    }
+
   @Test
   public void givenIntervaOpenOpenlwhenIncludeWithIncludedValueThenTrue() {
     Interval interval = new IntervalBuilder().open(left.getEquals()).open(right.getEquals()).build();
