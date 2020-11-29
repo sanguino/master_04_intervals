@@ -15,7 +15,12 @@ public class Interval {
 			return this.min.isWithin(value) && this.max.isWithin(value);
 	}
 
-	public boolean isIntersected (Interval interval) {
+	public boolean isIntersected (Interval intersect) {
+		if (intersect.include(this.min.value)) {
+			if (this.include(intersect.max.value)) {
+				return true;
+			}
+		}
 		return false;
 	}
 
