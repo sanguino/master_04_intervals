@@ -26,6 +26,12 @@ public class Interval {
 				return true;
 			}
 		}
+
+		if (this.include(intersect.min.value)) {
+			if (this.include(intersect.max.value)) {
+				return true;
+			}
+		}
 		return false;
 	}
 
