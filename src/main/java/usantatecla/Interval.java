@@ -12,11 +12,15 @@ public class Interval {
 	}
 
 	public boolean include(double value) {
-			return this.min.isWithin(value) && this.max.isWithin(value);
+		return this.min.isWithin(value) && this.max.isWithin(value);
+	}
+
+	public boolean include(Interval interval) {
+		return this.include(interval.max.value) || this.include(interval.min.value);
 	}
 
 	public boolean isIntersected (Interval intersect) {
-		if (this.include(intersect.max.value) || this.include(intersect.min.value) || intersect.include(this.min.value) || intersect.include(this.max.value)) {
+		if (this.include(intersect) || intersect.include(this)) {
 			return true;
 		}
 		return false;
